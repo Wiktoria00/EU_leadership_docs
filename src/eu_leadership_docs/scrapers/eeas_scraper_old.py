@@ -3,14 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 from urllib.parse import urljoin
-from eu_leadership_docs.utils.path_helpers import raw_path
+from eu_leadership_docs.utils.helpers import raw_path
 
-
-# MAIN WEBPAGE URL (for newer press releases, from 2017 onwards)
-# START_URL = (
-#     "https://www.eeas.europa.eu/eeas/press-material_en?"
-#     "fulltext=Russia&created_from=2014-01-01&created_to=2024-12-30&"
-#     "f%5B0%5D=pm_category%3APress+release&page={}")
 
 # ARCHIVE URL (for older press releases, until 2017)
 START_URL = (

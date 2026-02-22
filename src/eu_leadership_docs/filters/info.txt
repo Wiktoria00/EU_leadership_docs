@@ -1,0 +1,5 @@
+The scripts within this directory are responsible for:
+1. Breaking each document within the df into sentences.
+2. Extracting relevant (connected to Russia) chunks of text from each document.
+For EEAS and Council Conclusions (CC), this is the final step before further processing.
+For the French and German documents, this step is a preparation for subsequent translation.
