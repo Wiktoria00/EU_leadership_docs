@@ -14,17 +14,21 @@ logger = logging.getLogger(__name__)
 nlp = spacy.load("en_core_web_trf")
 nlp = en_core_web_trf.load()
 file = Path(__file__).resolve().parents[3] / "data" / "raw" / "eeas_press_releases.csv"
-ger_df = pd.read_csv(file)
-df = ger_df.copy()
+file2 = Path(__file__).resolve().parents[3] / "data" / "raw" / "eeas_until_2017.csv"
+eeas_df = pd.read_csv(file)
+df_2 = eeas_df.copy()
+eeas_df_2 = pd.read_csv(file2)
+df_3 = eeas_df_2.copy()
+
+df = pd.concat([df_2, df_3], ignore_index=True)
 logger.info("Loaded EEAS press releases!")
 OUTPUT_CSV = filtered_path("eeas_press_releases_filtered.csv")
 
-
 # we clean our full text column and create a new column with sentences
 try:
-    df['full_text'] = df['full_text'].apply(clean_text)
-    df['text_sentences'] = df['full_text'].apply(sent_tokenize, spacy_model= "en_core_web_trf")
-    logging.info("Successfully processed and added full_text_sentences column.")
+    df['text'] = df['text'].apply(clean_text)
+    df['text_sentences'] = df['text'].apply(sent_tokenize, spacy_model= "en_core_web_trf")
+    logging.info("Successfully processed and added text_sentences column.")
 except Exception as e:
     logging.error(f"An error occurred: {e}")
 

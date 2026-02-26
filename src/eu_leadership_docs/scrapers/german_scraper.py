@@ -3,7 +3,6 @@ import csv
 import time
 from bs4 import BeautifulSoup
 from eu_leadership_docs.utils.helpers import raw_path
-from pathlib import Path
 
 BASE_URL = "https://www.auswaertiges-amt.de"
 OUTPUT_CSV = raw_path("aa_press_2014_2025_full_with_2025.csv")

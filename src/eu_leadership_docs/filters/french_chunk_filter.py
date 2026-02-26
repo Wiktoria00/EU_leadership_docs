@@ -19,14 +19,13 @@ df = ger_df.copy()
 logger.info("Loaded French press releases!")
 OUTPUT_CSV = filtered_path("french_press_releases_filtered.csv")
 
+keyword_list = ['russie','navalny','russe','moscou','poutine','vladimir','kremlin',
+    'kiev','invasion','ukraine','sanction','embargo','gaz']
 
-# we clean our full text column and create a new column with sentences
-try:
-    df['full_text'] = df['full_text'].apply(clean_text)
-    df['text_sentences'] = df['full_text'].apply(sent_tokenize, spacy_model= "fr_core_news_sm")
-    logging.info("Successfully processed and added full_text_sentences column.")
-except Exception as e:
-    logging.error(f"An error occurred: {e}")
+df['Texte'] = df['Texte'].apply(clean_text)
+df['text_sentences'] = df['Texte'].apply(
+    lambda x: sent_tokenize(x, spacy_model="fr_core_news_sm") if pd.notna(x) else [])
+logging.info("Successfully processed and added text_sentences column.")
 
 '''
 Time for chunks! This includes:
@@ -34,23 +33,15 @@ Time for chunks! This includes:
 2) filtering for relevant sentences, 
 3) then putting relevant chunks to a new column (otherwise nan)
 '''
+df['text_lemmatized'] = df['text_sentences'].apply(
+    lambda sentences: [token for sentence in sentences for token in
+                        tokenize_lemmatize_text(sentence, spacy_model="fr_core_news_sm")])
+logging.info("Successfully processed and added text_lemmatized column.")
 
-## chunks step 1, so tokens and lemmatization
-# Process the text_sentences column to create the text_lemmatized column
-try:
-    df['text_lemmatized'] = df['text_sentences'].apply(
-        lambda sentences: [token for sentence in sentences for token in tokenize_lemmatize_text(sentence, spacy_model="fr_core_news_sm")]
-    )
-    logging.info("success! processed and added text_lemmatized column.")
-except Exception as e:
-    logging.error(f"ERROR:( . It occurred while lemmatizing text: {e}")
-## chunks step 2, so filtering for sentences with keywords and creating a new column 
-    # (plus padding, so 2 sentences before and 4 senctences after the relevant one)
-    # we will be creating the column as we go
-keyword_list = ['russie','navalny','russe','moscou','poutine','vladimir','kremlin',
-    'kiev','invasion','ukraine','sanction','embargo','gaz']
-df['context_sentences'] = df.apply(extract_context, keyword_list=keyword_list, axis=1)
+df['context_sentences'] = df.apply(
+    lambda row: extract_context(row, keyword_list=keyword_list) if pd.notna(row['Texte']) else [],
+    axis=1)
+logging.info("Processing completed successfully.")
 
 df.to_csv(OUTPUT_CSV, index=False)
 logging.info(f"Saved {len(df)} records to {OUTPUT_CSV}")
-#logging.info("German chunks filter script finished, wohoo!")

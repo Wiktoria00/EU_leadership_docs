@@ -2,6 +2,7 @@ import de_core_news_sm
 import logging
 from pathlib import Path
 import pandas as pd
+import re
 import spacy
 from eu_leadership_docs.config import configure_logging
 from eu_leadership_docs.utils.helpers import sent_tokenize, extract_context, clean_text, tokenize_lemmatize_text, filtered_path
@@ -17,39 +18,37 @@ df = ger_df.copy()
 logger.info("Loaded German press releases!")
 OUTPUT_CSV = filtered_path("german_press_releases_filtered.csv")
 
-
-# we clean our full text column and create a new column with sentences
-try:
-    df['full_text'] = df['full_text'].apply(clean_text)
-    df['text_sentences'] = df['full_text'].apply(sent_tokenize, spacy_model= "de_core_news_sm")
-    logging.info("Successfully processed and added full_text_sentences column.")
-except Exception as e:
-    logging.error(f"An error occurred: {e}")
-
-'''
-Time for chunks! This includes:
-1) tokenising and lemmatization, 
-2) filtering for relevant sentences, 
-3) then putting relevant chunks to a new column (otherwise nan)
-'''
-
-## chunks step 1, so tokens and lemmatization
-# Process the text_sentences column to create the text_lemmatized column
-try:
-    df['text_lemmatized'] = df['text_sentences'].apply(
-        lambda sentences: [token for sentence in sentences for token in tokenize_lemmatize_text(sentence, spacy_model="de_core_news_sm")]
-    )
-    logging.info("success! processed and added text_lemmatized column.")
-except Exception as e:
-    logging.error(f"ERROR:( . It occurred while lemmatizing text: {e}")
-## chunks step 2, so filtering for sentences with keywords and creating a new column 
-    # (plus padding, so 2 sentences before and 4 senctences after the relevant one)
-    # we will be creating the column as we go
+# Define the keyword list
 keyword_list = [
     'russland', 'nawalny', 'russisch', 'moskau', 'putin', 'wladimir', 'kreml',
-    'kiew', 'invasion', 'ukraine', 'sanktion', 'embargo', 'gas']
-df['context_sentences'] = df.apply(extract_context, keyword_list=keyword_list, axis=1)
+    'kiew', 'invasion', 'ukraine', 'sanktion', 'embargo', 'gas'
+]
 
+# Step 1: Clean the 'full_text' column
+df['full_text'] = df['full_text'].apply(clean_text)
+
+stems = ["russ", "mosk", "navalny","putin", "kreml", "ukrain", "embargo", "kiew", "donet", "sanktion", "gas", "rubel"]
+pattern = re.compile("|".join(stems), re.IGNORECASE)
+
+# Filter rows in 'full_text' based on the pattern
+df['relevant_prs'] = df['full_text'].apply(lambda x: x if pd.notna(x) and pattern.search(x) else None)
+logging.info("Filtered relevant press releases based on keywords and created 'relevant_prs' column.")
+# Log the number of non-empty rows in 'relevant_prs'
+non_empty_relevant_prs_count = df['relevant_prs'].notna().sum()
+logging.info(f"Number of non-empty rows in 'relevant_prs': {non_empty_relevant_prs_count}")
+
+# Step 3: Perform sentence splitting on 'relevant_prs'
+df['text_sentences'] = df['relevant_prs'].apply(
+    lambda x: sent_tokenize(x, spacy_model="de_core_news_sm") if pd.notna(x) else [])
+logging.info("Successfully processed and added text_sentences column.")
+# Step 4: Perform tokenization and lemmatization on 'text_sentences'
+df['text_lemmatized'] = df['text_sentences'].apply(
+    lambda sentences: [token for sentence in sentences for token in tokenize_lemmatize_text(sentence, spacy_model="de_core_news_sm")])
+logging.info("Successfully processed and added text_lemmatized column.")
+# Step 5: Extract relevant chunks from 'text_sentences' using the keyword list
+df['context_sentences'] = df.apply(
+    lambda row: extract_context(row, keyword_list=keyword_list) if pd.notna(row['relevant_prs']) else [],
+    axis=1)
+logging.info("Processing completed successfully.")
 df.to_csv(OUTPUT_CSV, index=False)
 logging.info(f"Saved {len(df)} records to {OUTPUT_CSV}")
-#logging.info("German chunks filter script finished, wohoo!")
