@@ -1,51 +1,44 @@
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from eu_leadership_docs.utils.helpers import translated_path
 from pathlib import Path
+import ast
+import logging
+from eu_leadership_docs.config import configure_logging
+configure_logging()
+logger = logging.getLogger(__name__)
 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2-7B")
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2-7B")
-
-# start of test use of the tranlation model
-messages = [
-    {"role": "user", "content": "Who are you?"},
-]
-inputs = tokenizer.apply_chat_template(
-	messages,
-	add_generation_prompt=True,
-	tokenize=True,
-	return_dict=True,
-	return_tensors="pt",
-).to(model.device)
-outputs = model.generate(**inputs, max_new_tokens=40)
-print(tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
-# end of test use of the translation model
-
+# Load Helsinki-NLP German-to-English translation model
+model_name = 'Helsinki-NLP/opus-mt-de-en'
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
 output_csv = translated_path("german_translated.csv")
-file = Path(__file__).resolve().parents[3] / "data" / "raw" / "german_filtered_cleaned.csv"
-ger_df = pd.read_csv(file)
-df = ger_df.copy()
+file = Path(__file__).resolve().parents[3] / "data" / "filtered" / "german_filtered_cleaned.csv"
+fr_df = pd.read_csv(file)
+df = fr_df.copy()
 
-# CODE BELOW NEEDS TO BE FIXED TO CORRESPOND TO QWEN MODEL , NOT GOOGLE TRANSLATE.
+df['context_sentences'] = df['context_sentences'].apply(ast.literal_eval)
 
-def translate_long_text(text, max_chunk=4900):
-    if not text or not isinstance(text, str):
-        return ""
+def translate_sentences(sentences):
+    inputs = tokenizer(
+        sentences,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=512
+    )
 
-    translated_parts = []
-    for i in range(0, len(text), max_chunk):
-        chunk = text[i:i+max_chunk]
-        try:
-            translated = GoogleTranslator(source='de', target='en').translate(chunk)
-            translated_parts.append(translated)
-        except Exception as e:
-            print(f"Error translating chunk: {e}")
-            time.sleep(1)
-            translated_parts.append("")
-    return " ".join(translated_parts)
+    outputs = model.generate(
+        **inputs,
+        num_beams=5,
+        length_penalty=1.0,
+        early_stopping=True,
+        no_repeat_ngram_size=3
+    )
 
-df["translated_text"] = df["context_sentences"].apply(translate_long_text)
+    return tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
+df['translated_context_sentences'] = df['context_sentences'].apply(translate_sentences)
 df.to_csv(output_csv, index=False)
-
+logging.info(f"Saved {len(df)} records to {output_csv}")
