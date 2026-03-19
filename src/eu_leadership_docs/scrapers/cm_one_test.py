@@ -6,7 +6,7 @@ from pathlib import Path
 As one can see, unfortunately, the pdfs are not structured in a way that allows us to extract text,
  so I will need to analyse them manually."""
 
-file = Path(__file__).resolve().parents[3] / "data" / "pdfs" / "M__ST-9-2014-INIT_en.pdf"
+file = Path(__file__).resolve().parents[3] / "data" / "raw" / "ST-9-2014-INIT_en.pdf"
 with pdfplumber.open(file) as pdf:
     pages = [p.extract_text() or '' for p in pdf.pages]
     print(f"Number of pages: {len(pages)}")
