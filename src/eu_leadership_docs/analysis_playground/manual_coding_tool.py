@@ -22,7 +22,7 @@ configure_logging()
 logger = logging.getLogger(__name__)
 
 def create_manual_coding_dataset():
-    fr_file = Path(__file__).resolve().parents[3] / "data" / "translated" / "french_translated.csv"
+    fr_file = Path(__file__).resolve().parents[3] / "data" / "translated" / "french_translated_responses.csv"
     fre_df = pd.read_csv(fr_file)
     fr_df = fre_df.copy()
 
@@ -37,6 +37,7 @@ def create_manual_coding_dataset():
     # French dataset
     # (DD/MM/YYYY)
     fr_df['Date'] = pd.to_datetime(fr_df['Date'], format='%d/%m/%Y', errors="coerce")
+    fr_df = fr_df[fr_df['context_sentences'] != '[]']
     fr_df = fr_df.sort_values(by='Date', ascending=True).reset_index(drop=True)
     fr = fr_df[['Date', 'translated_context_sentences']].copy()
     fr['actor'] = 'france'
@@ -68,8 +69,8 @@ def create_manual_coding_dataset():
     eeas_sample = sample_yearly(eeas, 'Date')
 
     combined_df = pd.concat([fr_sample, ger_sample, eeas_sample], ignore_index=True)
-    combined_df.to_excel(Path(__file__).resolve().parents[3] / "data" / "manual_coding_dataset.xlsx", index=False)
-    logger.info("Manual coding dataset created and saved as 'manual_coding_dataset.xlsx'.")
+    combined_df.to_excel(Path(__file__).resolve().parents[3] / "data" / "manual_coding_dataset3.xlsx", index=False)
+    logger.info("Manual coding dataset created and saved as 'manual_coding_dataset3.xlsx'.")
     return combined_df
 
 # call the function

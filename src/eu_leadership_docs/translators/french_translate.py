@@ -13,14 +13,25 @@ model_name = 'Helsinki-NLP/opus-mt-fr-en'
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
-output_csv = translated_path("french_translated.csv")
-file = Path(__file__).resolve().parents[3] / "data" / "filtered" / "french_filtered_cleaned.csv"
+output_csv = translated_path("french_translated_responses.csv")
+file = Path(__file__).resolve().parents[3] / "data" / "filtered" / "french_press_releases_filtered_responses.csv"
 fr_df = pd.read_csv(file)
 df = fr_df.copy()
 
-df['context_sentences'] = df['context_sentences'].apply(ast.literal_eval)
+def safe_eval(value):
+    try:
+        return ast.literal_eval(value)  # Convert string to list of sentences
+    except (ValueError, SyntaxError):
+        # If there's an error (like an empty or malformed string), return an empty list or handle as needed
+        logger.warning(f"Skipping malformed context_sentences: {value}")
+        return []
 
 def translate_sentences(sentences):
+    # Check if sentences list is not empty
+    if not sentences:
+        logger.warning("Empty sentence list, skipping translation.")
+        return []  # or you can return some default value (e.g., ["Translation failed"])
+
     inputs = tokenizer(
         sentences,
         return_tensors="pt",
@@ -39,6 +50,7 @@ def translate_sentences(sentences):
 
     return tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
+df['context_sentences'] = df['context_sentences'].apply(safe_eval)
 df['translated_context_sentences'] = df['context_sentences'].apply(translate_sentences)
 df.to_csv(output_csv, index=False)
 logging.info(f"Saved {len(df)} records to {output_csv}")
