@@ -54,14 +54,17 @@ def create_manual_coding_dataset():
     eeas = eeas_df[['Date', 'context_sentences']].copy()
     eeas['actor'] = 'eeas'
 
-    def sample_yearly(df, date_col, sample_size=10):
+    def sample_yearly(df, date_col, sample_size=2):
         grouped = df.groupby(df[date_col].dt.year)
         
         sampled = []
         for year, group in grouped:
             n_samples = min(len(group), sample_size)
-            sampled.append(group.sample(n=n_samples, random_state=7))
-        
+            sampled.append(group.sample(n=n_samples, random_state=33))
+        #first round (10 samples per year): 7
+        #second round (6 samples per year): 42
+        #unseen data 1 (1 sample per year): 9
+        #unseen data 2 (2 samples per year): 33
         return pd.concat(sampled, ignore_index=True)
 
     fr_sample = sample_yearly(fr, 'Date')
@@ -69,8 +72,8 @@ def create_manual_coding_dataset():
     eeas_sample = sample_yearly(eeas, 'Date')
 
     combined_df = pd.concat([fr_sample, ger_sample, eeas_sample], ignore_index=True)
-    combined_df.to_excel(Path(__file__).resolve().parents[3] / "data" / "manual_coding_dataset3.xlsx", index=False)
-    logger.info("Manual coding dataset created and saved as 'manual_coding_dataset3.xlsx'.")
+    combined_df.to_excel(Path(__file__).resolve().parents[3] / "data" / "second_unseen_data_dataset.xlsx", index=False)
+    logger.info("Manual coding dataset created and saved as 'second_unseen_data_dataset.xlsx'.")
     return combined_df
 
 # call the function

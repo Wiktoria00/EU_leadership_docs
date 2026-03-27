@@ -24,7 +24,7 @@ keyword_list = [
     'kiew', 'invasion', 'ukraine', 'sanktion', 'embargo', 'gas'
 ]
 
-# Step 1: Clean the 'full_text' column
+# Step 1 Clean the 'full_text' column
 df['full_text'] = df['full_text'].apply(clean_text)
 
 stems = ["russ", "mosk", "navalny","putin", "kreml", "ukrain", "embargo", "kiew", "donet", "sanktion", "gas", "rubel"]
@@ -37,15 +37,15 @@ logging.info("Filtered relevant press releases based on keywords and created 're
 non_empty_relevant_prs_count = df['relevant_prs'].notna().sum()
 logging.info(f"Number of non-empty rows in 'relevant_prs': {non_empty_relevant_prs_count}")
 
-# Step 3: Perform sentence splitting on 'relevant_prs'
+# Step 3 Perform sentence splitting on 'relevant_prs'
 df['text_sentences'] = df['relevant_prs'].apply(
     lambda x: sent_tokenize(x, spacy_model="de_core_news_sm") if pd.notna(x) else [])
 logging.info("Successfully processed and added text_sentences column.")
-# Step 4: Perform tokenization and lemmatization on 'text_sentences'
+# Step 4 Perform tokenization and lemmatization on 'text_sentences'
 df['text_lemmatized'] = df['text_sentences'].apply(
     lambda sentences: [token for sentence in sentences for token in tokenize_lemmatize_text(sentence, spacy_model="de_core_news_sm")])
 logging.info("Successfully processed and added text_lemmatized column.")
-# Step 5: Extract relevant chunks from 'text_sentences' using the keyword list
+# Step 5 Extract relevant chunks from 'text_sentences' using the keyword list
 df['context_sentences'] = df.apply(
     lambda row: extract_context(row, keyword_list=keyword_list) if pd.notna(row['relevant_prs']) else [],
     axis=1)

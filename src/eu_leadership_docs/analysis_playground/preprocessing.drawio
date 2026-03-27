@@ -1,0 +1,223 @@
+<mxfile host="65bd71144e">
+    <diagram id="VS7wYbb9IQ1RzrPIa8iS" name="Page-1">
+        <mxGraphModel dx="930" dy="1724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="16" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="-50" width="1120" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="70" width="160" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;span id=&quot;docs-internal-guid-ec224eb0-7fff-ed1e-1a1e-85d77aa73967&quot; style=&quot;background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot; face=&quot;Helvetica&quot;&gt;The French Ministry for Europe and Foreign Affairs&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="290" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Draft Council Minutes" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="130" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;span id=&quot;docs-internal-guid-2412b84b-7fff-18d2-65d1-dfbccf351b19&quot; style=&quot;background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot; face=&quot;Helvetica&quot;&gt;the German Federal Foreign Office&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="165" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;span class=&quot;ZNx93QP1XNrBdT5MI6SY&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;The European External Action Service&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="220" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=90;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="70" width="270" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=80;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="70" width="190" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=60;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="70" width="140" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=40;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="70" width="150" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=20;" parent="1" vertex="1">
+                    <mxGeometry x="1050" y="70" width="180" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot; face=&quot;Helvetica&quot;&gt;Filtering using the website built-in keyword search functionality&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="220" width="70" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="endArrow=classic;html=1;strokeWidth=3;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="140" y="53" as="sourcePoint"/>
+                        <mxPoint x="1240.0000000000002" y="50" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="&lt;font style=&quot;font-size: 21px; color: rgb(0, 0, 0);&quot;&gt;Data Collection and Preprocessing&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="-40" width="710" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Scraping&lt;/b&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;. Libraries used: time, Pandas, BeautifulSoup, Playwright (EEAS), UrlLib (EEAS), requests (GER).&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="405" y="170" width="150" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;p&gt;&lt;span id=&quot;docs-internal-guid-2412b84b-7fff-18d2-65d1-dfbccf351b19&quot; style=&quot;background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot; face=&quot;Helvetica&quot;&gt;Manually accessing PDF files and creating a CSV&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="355" y="120" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Accessing the database&lt;/b&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;. converting PDF to CSV. Libraries used: Regex, Pandas, PDFPlumber.&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="405" y="290" width="150" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="21">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="280" as="sourcePoint"/>
+                        <mxPoint x="410" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" target="20">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="280" y="198" as="sourcePoint"/>
+                        <mxPoint x="429" y="188" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.01;entryY=0.216;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="7" target="15">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="360" as="sourcePoint"/>
+                        <mxPoint x="410" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.008;entryY=0.786;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3" target="15">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="300" as="sourcePoint"/>
+                        <mxPoint x="440" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.003;entryY=0.73;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="15" target="20">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" y="300" as="sourcePoint"/>
+                        <mxPoint x="430" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="" style="endArrow=classic;html=1;exitX=0.995;exitY=0.804;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.002;entryY=0.291;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="15" target="22">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" y="310" as="sourcePoint"/>
+                        <mxPoint x="450" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="Choice of Datasite" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="70" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Data Collection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="70" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Preparing the text for relevant segment extraction&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="70" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Relevant segment extraction&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="70" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Translation&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="920" y="70" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Final DataFrames&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="70" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="&lt;p&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;- Cleaning&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;- Dividing text into sentences&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;- Tokenisation&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;- Lemmatisation&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;Library used: Spacy&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="170" width="90" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;p&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot; face=&quot;Helvetica&quot;&gt;Extracting the sentence containing the relevant keyword, as well as&amp;nbsp;&lt;span style=&quot;background-color: transparent; white-space-collapse: preserve;&quot;&gt;a context window of two preceding and four following sentences&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="170" width="100" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Translation of relevant segments using&amp;nbsp;&lt;/span&gt;&lt;span id=&quot;docs-internal-guid-59ad358e-7fff-2bec-ffe3-dbe61b642ea7&quot; style=&quot;color: rgb(0, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;Helsinki-NLP/opus-mt-fr-en, verification using DeepL&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="910" y="150" width="120" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;p&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Translation of relevant segments using&amp;nbsp;&lt;/span&gt;&lt;span id=&quot;docs-internal-guid-44f57bba-7fff-c40f-1f12-bb3e4ab1d660&quot; style=&quot;color: rgb(0, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;Helsinki-NLP/opus-mt-de-en, verification using DeepL&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="910" y="280" width="120" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="89 Draft Council miniutes DataFrame" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="130" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;p&gt;&lt;span id=&quot;docs-internal-guid-b7868884-7fff-0bd1-10c5-1297f3768adc&quot; style=&quot;color: rgb(0, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;861 German press releases&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="185" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="&lt;span id=&quot;docs-internal-guid-f7246d90-7fff-c21e-e869-38fdbab708f1&quot; style=&quot;color: rgb(0, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;1408 EEAS press releases&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="245" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="&lt;p&gt;&lt;span id=&quot;docs-internal-guid-e27330a9-7fff-edeb-bfb4-0bdd7f296220&quot; style=&quot;color: rgb(0, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;&quot;&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;&quot;&gt;752 French press releases&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="302.5" width="120" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="21">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="730" y="250" as="sourcePoint"/>
+                        <mxPoint x="1090" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.003;entryY=0.131;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="20" target="42">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="690" y="320" as="sourcePoint"/>
+                        <mxPoint x="619" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.391;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="20" target="42">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="300" as="sourcePoint"/>
+                        <mxPoint x="620" y="253" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="54" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.012;entryY=0.678;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="22" target="42">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="300" as="sourcePoint"/>
+                        <mxPoint x="730" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="55" value="" style="endArrow=classic;html=1;exitX=1.013;exitY=0.471;exitDx=0;exitDy=0;entryX=0;entryY=0.149;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="63" target="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="780" y="180" as="sourcePoint"/>
+                        <mxPoint x="830" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.399;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.009;entryY=0.398;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="42" target="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="820" y="180" as="sourcePoint"/>
+                        <mxPoint x="870" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="57" value="" style="endArrow=classic;html=1;exitX=0.986;exitY=0.685;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.014;entryY=0.685;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="42" target="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="820" y="180" as="sourcePoint"/>
+                        <mxPoint x="870" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" value="" style="endArrow=classic;html=1;exitX=1.01;exitY=0.159;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.586;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="43" target="45">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="200" as="sourcePoint"/>
+                        <mxPoint x="960" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="" style="endArrow=classic;html=1;exitX=1.003;exitY=0.397;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.013;entryY=0.175;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="43" target="49">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1000" y="220" as="sourcePoint"/>
+                        <mxPoint x="1090" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="60" value="" style="endArrow=classic;html=1;exitX=1.004;exitY=0.702;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="260" as="sourcePoint"/>
+                        <mxPoint x="910" y="317" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="" style="endArrow=classic;html=1;exitX=1.006;exitY=0.419;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.359;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="46" target="50">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="260" as="sourcePoint"/>
+                        <mxPoint x="960" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="62" value="" style="endArrow=classic;html=1;entryX=0.004;entryY=0.378;entryDx=0;entryDy=0;exitX=1.007;exitY=0.581;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="45" target="48">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="260" as="sourcePoint"/>
+                        <mxPoint x="960" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="" style="endArrow=classic;html=1;exitX=0.971;exitY=0.149;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.471;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="42" target="63">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="697" y="201" as="sourcePoint"/>
+                        <mxPoint x="780" y="201" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="63" value="Filtering using a keyword list" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="170" width="50" height="65" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

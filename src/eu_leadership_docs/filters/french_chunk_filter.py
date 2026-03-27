@@ -76,23 +76,21 @@ logger.info(f"Loaded {len(df)} records.")
 
 df = df.copy()
 
-# 1. Clean Text (remove extra whitespace, fix encoding)
+# clean Text (remove extra whitespace, fix encoding)
 logger.info("Cleaning text...")
 df['Texte'] = df['Texte'].apply(clean_text)
 
-# 2. Extract Only Answers (Q&A Filtering)
+# extract answers (Q&A Filtering)
 logger.info("Extracting Q&A answers (filtering out questions)...")
 df['Texte'] = df['Texte'].apply(extract_qa_answers)
 
-# 3. Sentence Tokenization
+# sentence tokenization
 logger.info("Tokenizing sentences...")
 df['text_sentences'] = df['Texte'].apply(
     lambda x: sent_tokenize(x, spacy_model="fr_core_news_sm") if pd.notna(x) else []
 )
 
-# 4. Lemmatization (Tokenizing the whole chunk for keyword matching)
-# Note: You are currently lemmatizing the whole list of sentences into one big list per row.
-# This is fine for keyword filtering, but ensure your 'extract_context' handles lists of tokens correctly.
+# lemmatization (Tokenizing the whole chunk for keyword matching)
 logger.info("Lemmatizing text...")
 df['text_lemmatized'] = df['text_sentences'].apply(
     lambda sentences: [
@@ -102,14 +100,13 @@ df['text_lemmatized'] = df['text_sentences'].apply(
     ]
 )
 
-# 5. Extract Relevant Context (Keyword Filtering)
+# extract relevant context
 logger.info("Extracting relevant context chunks based on keywords...")
 df['context_sentences'] = df.apply(
     lambda row: extract_context(row, keyword_list=keyword_list) if pd.notna(row['Texte']) else [],
     axis=1
 )
 
-# --- Save ---
 df.to_csv(OUTPUT_CSV, index=False)
 logger.info(f"Successfully saved {len(df)} records to {OUTPUT_CSV}")
 logger.info("Processing complete.")
