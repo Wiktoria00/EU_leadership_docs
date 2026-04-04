@@ -26,15 +26,12 @@ entries = re.split(r'\d+ / \d+ − Point de presse du ', pdf_text)[1:]  # skip h
 
 data = []
 for entry in entries:
-    # Extract date
     date_match = re.match(r'(\d{2}/\d{2}/\d{4})', entry)
     date = date_match.group(1) if date_match else None
-    
-    # Extract reference
+
     ref_match = re.search(r'Référence (\S+)', entry)
     reference = ref_match.group(1) if ref_match else None
     
-    # Extract texte
     texte_match = re.search(r'Texte (.+)', entry, re.DOTALL)
     texte = texte_match.group(1).strip() if texte_match else None
     type_ = "Point de presse"

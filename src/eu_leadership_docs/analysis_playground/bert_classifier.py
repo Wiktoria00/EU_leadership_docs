@@ -129,7 +129,7 @@ def train_bert_classifier(texts, labels, dimension_name):
     ).to(DEVICE)
     loss_fn = torch.nn.CrossEntropyLoss(weight=class_weights)
 
-    # ── TRAINING LOOP ─────────────────────────────────────────────────────────
+    # TRAINING LOOP
     best_val_f1 = 0
     best_model_state = None
 
@@ -168,13 +168,13 @@ def train_bert_classifier(texts, labels, dimension_name):
         val_f1 = f1_score(val_true, val_preds, average='weighted', zero_division=0)
         print(f"Epoch {epoch+1}/{EPOCHS} | Train Loss: {avg_train_loss:.4f} | Val F1: {val_f1:.4f}")
 
-        # Save best model
+        # Saving best model
         if val_f1 > best_val_f1:
             best_val_f1 = val_f1
             best_model_state = model.state_dict().copy()
             print(f"  → New best model saved (Val F1: {val_f1:.4f})")
 
-    # ── TEST EVALUATION ───────────────────────────────────────────────────────
+    # TEST EVALUATION
     model.load_state_dict(best_model_state)
     model.eval()
     test_preds, test_true = [], []
@@ -194,7 +194,7 @@ def train_bert_classifier(texts, labels, dimension_name):
 
     return model, tokenizer, test_f1
 
-# ── TRAIN PER DIMENSION ───────────────────────────────────────────────────────
+# TRAIN PER DIMENSION
 bert_classifiers = {}
 bert_results = {}
 texts = df['text'].tolist()
