@@ -107,6 +107,10 @@ df['context_sentences'] = df.apply(
     axis=1
 )
 
+# Count occurrences per row (case-insensitive)
+df['count'] = df['context_sentences'].str.lower().str.count('russia')
+df = df[df['count']  != 1]
+
 df.to_csv(OUTPUT_CSV, index=False)
 logger.info(f"Successfully saved {len(df)} records to {OUTPUT_CSV}")
 logger.info("Processing complete.")

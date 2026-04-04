@@ -37,8 +37,6 @@ for entry in entries:
     # Extract texte
     texte_match = re.search(r'Texte (.+)', entry, re.DOTALL)
     texte = texte_match.group(1).strip() if texte_match else None
-    
-    # Type
     type_ = "Point de presse"
     
     data.append({

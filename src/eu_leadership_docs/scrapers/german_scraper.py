@@ -7,7 +7,7 @@ from eu_leadership_docs.utils.helpers import raw_path
 BASE_URL = "https://www.auswaertiges-amt.de"
 OUTPUT_CSV = raw_path("aa_press_2014_2025_full_with_2025.csv")
 
-# każdy rok
+# each year
 years_URLs = {
     '2014':'https://www.auswaertiges-amt.de/ajax/json-filterlist/de/newsroom/presse/web-archiv/archiv-pressemitteilungen/2014-archivpressemitteilungen-node/216810-216810?limit=25', 
     '2015':'https://www.auswaertiges-amt.de/ajax/json-filterlist/de/newsroom/presse/web-archiv/archiv-pressemitteilungen/2015-archivpressemitteilungen-node/216806-216806?limit=25',

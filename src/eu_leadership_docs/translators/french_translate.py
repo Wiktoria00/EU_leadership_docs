@@ -20,9 +20,8 @@ df = fr_df.copy()
 
 def safe_eval(value):
     try:
-        return ast.literal_eval(value)  # Convert string to list of sentences
+        return ast.literal_eval(value)
     except (ValueError, SyntaxError):
-        # If there's an error (like an empty or malformed string), return an empty list or handle as needed
         logger.warning(f"Skipping malformed context_sentences: {value}")
         return []
 
@@ -30,7 +29,7 @@ def translate_sentences(sentences):
     # Check if sentences list is not empty
     if not sentences:
         logger.warning("Empty sentence list, skipping translation.")
-        return []  # or you can return some default value (e.g., ["Translation failed"])
+        return []
 
     inputs = tokenizer(
         sentences,

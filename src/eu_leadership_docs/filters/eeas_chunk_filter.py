@@ -22,7 +22,7 @@ df_3 = eeas_df_2.copy()
 
 df = pd.concat([df_2, df_3], ignore_index=True)
 logger.info("Loaded EEAS press releases!")
-OUTPUT_CSV = filtered_path("eeas_press_releases_filtered.csv")
+OUTPUT_CSV = filtered_path("eeas_filtered_cleaned.csv")
 
 # we clean our full text column and create a new column with sentences
 try:
@@ -54,6 +54,10 @@ except Exception as e:
 keyword_list = ['russia','navalny','russian','moscow','putin','vladimir','kremlin',
     'kyiv','invasion','ukraine','sanction','embargo','gas']
 df['context_sentences'] = df.apply(extract_context, keyword_list=keyword_list, axis=1)
+
+# Count occurrences per row (case-insensitive)
+df['count'] = df['context_sentences'].str.lower().str.count('russia')
+df = df[df['count'] != 1]
 
 df.to_csv(OUTPUT_CSV, index=False)
 logging.info(f"Saved {len(df)} records to {OUTPUT_CSV}")

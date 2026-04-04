@@ -16,7 +16,7 @@ file = Path(__file__).resolve().parents[3] / "data" / "raw" / "german_press_rele
 ger_df = pd.read_csv(file)
 df = ger_df.copy()
 logger.info("Loaded German press releases!")
-OUTPUT_CSV = filtered_path("german_press_releases_filtered.csv")
+OUTPUT_CSV = filtered_path("german_filtered_cleaned.csv")
 
 # Define the keyword list
 keyword_list = [
@@ -50,5 +50,10 @@ df['context_sentences'] = df.apply(
     lambda row: extract_context(row, keyword_list=keyword_list) if pd.notna(row['relevant_prs']) else [],
     axis=1)
 logging.info("Processing completed successfully.")
+
+# Count occurrences per row (case-insensitive)
+df['count'] = df['context_sentences'].str.lower().str.count('russia')
+df = df[df['count']  != 1]
+
 df.to_csv(OUTPUT_CSV, index=False)
 logging.info(f"Saved {len(df)} records to {OUTPUT_CSV}")

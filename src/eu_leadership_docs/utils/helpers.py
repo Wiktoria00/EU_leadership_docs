@@ -17,6 +17,8 @@ def get_data_path(subdir: str, filename: str) -> Path:
         return config.TRANSLATED_DIR / filename
     elif subdir == "filtered":
         return config.FILTERED_DIR / filename
+    elif subdir == "final":
+        return config.FINAL_DIR / filename
     else:
         raise ValueError(f"Unknown subdir: {subdir}")
 
@@ -28,6 +30,9 @@ def translated_path(filename: str) -> Path:
 
 def filtered_path(filename: str) -> Path:
     return get_data_path("filtered", filename)
+
+def final_path(filename: str) -> Path:
+    return get_data_path("final", filename)
 
 # text preprocessing helpers
 
